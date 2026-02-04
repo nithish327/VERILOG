@@ -1,0 +1,4 @@
+module demux2_1(output y1,y2, input a,sel);
+assign y1= (~sel&a);
+assign y2=(sel&a);
+endmodule
