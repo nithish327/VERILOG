@@ -1,0 +1,10 @@
+module mux(output y, input i0,i1,i2,i3,i4,i5,i6,i7,s2,s1,s0);
+wire a,b,c,d,e,f;
+assign a= ~s0&i0|s0&i1;
+assign b= ~s0&i2|s0&i3;
+assign c= ~s0&i4|s0&i5;
+assign d= ~s0&i6|s0&i7;
+assign e= ~s1&a|s1&b;
+assign f= ~s1&c|s1&d;
+assign y= ~s2&e|s2&f;
+endmodule
