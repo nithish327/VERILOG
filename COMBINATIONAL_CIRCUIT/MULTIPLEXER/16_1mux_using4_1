@@ -1,0 +1,8 @@
+module mux16_1(output y, input i0,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,s3,s2,s1,s0);
+wire a,b,c,d;
+assign a=~s1&~s0&i0|~s1&s0&i1|s1&~s0&i2|s1&s0&i3;
+assign b=~s1&~s0&i4|~s1&s0&i5|s1&~s0&i6|s1&s0&i7;
+assign c=~s1&~s0&i8|~s1&s0&i9|s1&~s0&i10|s1&s0&i11;
+assign d=~s1&~s0&i12|~s1&s0&i13|s1&~s0&i14|s1&s0&i15;
+assign y=~s3&~s2&a|~s3&s2&b|s3&~s2&c|s3&s2&d;
+endmodule
