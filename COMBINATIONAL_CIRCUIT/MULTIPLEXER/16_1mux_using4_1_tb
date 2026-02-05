@@ -1,0 +1,29 @@
+module tb_mux;
+reg i0,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,s3,s2,s1,s0;
+wire a,b,c,d,y;
+mux16_1 dut (.*);
+initial begin
+    $dumpfile("mux16_1.vcd");
+    $dumpvars(1,tb_mux);
+     i0=0; i1=1; i2=0; i3=1; i4=0; i5=0; i6=0; i7=1; i8=1; i9=1; i10=0; i11=1; i12=0; i13=1; i14=0; i15=1;
+    $display("i0=%b  i1=%b i2=%b i3=%b i4=%b i5=%b i6=%b i7=%b i8=%b  i9=%b i10=%b i11=%b i12=%b i13=%b i14=%b i15=%b",i0,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15);
+    $monitor("Time=0%t s3=%b s2=%b s1=%b s0=%b y=%b", $time,s3,s2,s1,s0,y);
+    s3=0; s2=0; s1=0; s0=0;#10
+    s3=0; s2=0; s1=0; s0=1;#10
+    s3=0; s2=0; s1=1; s0=0;#10
+    s3=0; s2=0; s1=1; s0=1;#10
+    s3=0; s2=1; s1=0; s0=0;#10
+    s3=0; s2=1; s1=0; s0=1;#10
+    s3=0; s2=1; s1=1; s0=0;#10
+    s3=0; s2=1; s1=1; s0=1;#10
+    s3=1; s2=0; s1=0; s0=0;#10
+    s3=1; s2=0; s1=0; s0=1;#10
+    s3=1; s2=0; s1=1; s0=0;#10
+    s3=1; s2=0; s1=1; s0=1;#10
+    s3=1; s2=1; s1=0; s0=0;#10
+    s3=1; s2=1; s1=0; s0=1;#10
+    s3=1; s2=1; s1=1; s0=0;#10
+    s3=1; s2=1; s1=1; s0=1;#10
+    $finish;
+end
+endmodule
