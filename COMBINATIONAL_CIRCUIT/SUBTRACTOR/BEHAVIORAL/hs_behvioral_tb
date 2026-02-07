@@ -1,0 +1,15 @@
+module tb_half_sub;
+  reg a,b;
+  wire diif,barrow;
+  half_sub dut(.a(a), .b(b), .diff(diff), .barrow(barrow));
+  initial begin
+    $dumpfile("half_sub.vcd");
+    $dumpvars(1,tb_half_sub);
+    $monitor("Time =0%t a=%b b=%b diff=%b barrow=%b",$time,a,b,diff,barrow);
+    a=0; b=0; #10
+    a=0; b=1; #10
+    a=1; b=0; #10
+    a=1; b=1; #10
+    $finish;
+  end
+endmodule
