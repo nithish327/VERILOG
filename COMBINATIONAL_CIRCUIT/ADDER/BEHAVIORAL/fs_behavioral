@@ -1,0 +1,7 @@
+module full_sub(output reg diff ,barrow ,input wire a,b,cin);
+always @(*)begin
+    diff= a^b^cin;
+    barrow= (!a)&(b)|(!a)|(cin)|(b)&(cin);
+end
+endmodule
+    
