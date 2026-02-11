@@ -1,5 +1,5 @@
 module sr_latch(output reg q,input wire s,r,rst,clk);
-always @(*) begin
+always @(clk) begin
     if (rst)begin
         q<=0;
     end
