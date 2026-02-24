@@ -3,6 +3,14 @@ module adder(input wire [7:0]a,
              output reg [7:0]sum
             );
   always @(*)begin
-    sum = a+b;
+    bit_sum(a,b,sum);
   end 
+  task bit_sum;
+    input [7:0]a;
+    input [7:0]b;
+    output [7:0]sum;
+    begin
+      sum=a+b;
+    end 
+  endtask
 endmodule
