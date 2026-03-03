@@ -1,0 +1,27 @@
+module tb;
+  reg clk,rst,d_in;
+  wire d_out;
+  fsm dut (.*);
+  always #5 clk = ~clk;
+  initial begin;
+    rst=1;
+    clk=0;
+    d_in=0;
+    
+    #10rst=0;
+    @(posedge clk)d_in = 0; 
+    @(posedge clk)d_in = 1; 
+    @(posedge clk)d_in = 0; 
+    @(posedge clk)d_in = 1; 
+    @(posedge clk)d_in = 1; 
+    @(posedge clk)d_in = 0; 
+    @(posedge clk)d_in = 1; 
+    @(posedge clk)d_in = 1; 
+    $finish;
+  end
+  initial begin
+    $dumpfile("fsm.vcd");
+    $dumpvars(0,tb);
+    $monitor("Time=%0t rst=%b clk=%b input=%b output=%b",$time,rst,clk,d_in,d_out);
+  end
+endmodule
