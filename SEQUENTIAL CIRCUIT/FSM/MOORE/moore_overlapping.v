@@ -46,7 +46,7 @@ module moore_overlapping(input clk,rst,in, output reg out);
       endcase
     end
   always @(posedge clk )begin
-       if(state==s3 && in)
+       if(state==s3)
           out <=1;
         else
           out <=0;
