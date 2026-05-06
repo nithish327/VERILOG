@@ -29,7 +29,7 @@ module top_module #(parameter N=8)(
                    .apb_read_data_out(apb_read_data_out),
                    .PWRITE(PWRITE),.PSELx(PSELx),.PENABLE(PENABLE));
   
-  APB_slave apb2 ( .PCLK(PCLK),
+  ALU_slave apb2 ( .PCLK(PCLK),
                    .PRESETn(PRESETn),
                    .PREADY(PREADY),
                    .PRDATA(PRDATA),
